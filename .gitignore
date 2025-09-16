@@ -1,0 +1,37 @@
+# Godot 4+
+# Godot-specific generated files
+.godot/
+/android/
+/export/
+
+# C# and C++
+.mono/
+bin/
+obj/
+*.csproj
+.sln
+.vs/
+.vscode/
+
+# Ignore custom build folder created with Godot 4.3 and later
+/builds/
+
+# 2D/3D assets and scene exports
+# Godot automatically generates imports for these, which should be committed.
+# Only ignore the source files if they are large or unneeded.
+# *.obj
+# *.blend
+# *.fbx
+# *.gltf
+
+# Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+*.bak
+
+# macOS
+.DS_Store
+
+# Linux
+*~
