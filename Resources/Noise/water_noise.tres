@@ -1,3 +1,5 @@
 [gd_resource type="FastNoiseLite" format=3 uid="uid://cakwikrw3wkhh"]
 
 [resource]
+noise_type = 3
+metadata/_preview_in_3d_space_ = true
