@@ -7,7 +7,7 @@ render_priority = 0
 shader = ExtResource("1_2dp2r")
 shader_parameter/WaveHeight = 4.0
 shader_parameter/Direction = Vector2(1, -0.5)
-shader_parameter/Color = Color(0.188235, 0.407843, 1, 1)
+shader_parameter/Color = Color(0.053335838, 0.25513953, 0.9999904, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_athm3"]
 material = SubResource("ShaderMaterial_rbbj0")
