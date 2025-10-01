@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://eb7ys80hey4j"
-path="res://.godot/imported/SUSEMono-MediumItalic.ttf-6f0004bc88df65eebee1198ec0aee393.fontdata"
+uid="uid://cd827dejxmru6"
+path="res://.godot/imported/Garet-Book.woff2-33355f1394e15f332bf41e86410648a2.fontdata"
 
 [deps]
 
-source_file="res://Fonts/SUSE_Mono/static/SUSEMono-MediumItalic.ttf"
-dest_files=["res://.godot/imported/SUSEMono-MediumItalic.ttf-6f0004bc88df65eebee1198ec0aee393.fontdata"]
+source_file="res://Fonts/Buttons/Garet-Book.woff2"
+dest_files=["res://.godot/imported/Garet-Book.woff2-33355f1394e15f332bf41e86410648a2.fontdata"]
 
 [params]
 
