@@ -3,6 +3,7 @@
 .godot/
 /android/
 /export/
+.nomedia
 
 # C# and C++
 .mono/
