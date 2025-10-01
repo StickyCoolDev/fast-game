@@ -1,20 +1,23 @@
-[gd_scene load_steps=21 format=3 uid="uid://86xq8pelpg0k"]
+[gd_scene load_steps=22 format=3 uid="uid://86xq8pelpg0k"]
 
-[ext_resource type="Texture2D" uid="uid://udedjt1ouyaq" path="res://Resources/Noise/sand_nosie.tres" id="1_vr1f0"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_t1dhk"]
-[ext_resource type="FontFile" uid="uid://deoedg27jkngq" path="res://Fonts/SUSE_Mono/static/SUSEMono-ExtraBoldItalic.ttf" id="3_5egv6"]
-[ext_resource type="FontFile" uid="uid://b46p5kiyvmefn" path="res://Fonts/SUSE_Mono/static/SUSEMono-LightItalic.ttf" id="4_vtepg"]
-[ext_resource type="Script" uid="uid://ca03qs8pkvkoj" path="res://Util/animation_manager.gd" id="5_8dnnj"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="6_m3bi6"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_wyh8j"]
-[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="8_ujyyl"]
-[ext_resource type="PackedScene" uid="uid://524x05lhcnpr" path="res://Components/Water/water.tscn" id="9_mkpwh"]
-[ext_resource type="Shader" uid="uid://cyo3q5fs0wsw0" path="res://Resources/VisualShaders/water.tres" id="10_4nkqq"]
-[ext_resource type="Script" uid="uid://cjw0anoirpv46" path="res://addons/AndroidNotificationPlugin/scripts/notification_node.gd" id="11_ehtkc"]
+[ext_resource type="Texture2D" uid="uid://udedjt1ouyaq" path="res://Resources/Noise/sand_nosie.tres" id="1_6c6cs"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_fo6ee"]
+[ext_resource type="FontFile" uid="uid://clop33kbdk86e" path="res://Fonts/SUSE_Mono/static/SUSEMono-ExtraBold.ttf" id="3_nqd6t"]
+[ext_resource type="FontFile" uid="uid://dqq8fcs5rgnbx" path="res://Fonts/Buttons/SUSEMono-Bold.ttf" id="4_43m2q"]
+[ext_resource type="StyleBox" uid="uid://tttj68cvotl7" path="res://Style/MainMenu/TitleButtons/Transparent_Normal.tres" id="5_xt57n"]
+[ext_resource type="StyleBox" uid="uid://dqoo6cywtg4yt" path="res://Style/MainMenu/TitleButtons/Transparent_black_hovering.tres" id="6_os7au"]
+[ext_resource type="Texture2D" uid="uid://21xuyhc7r2ow" path="res://Icons/MainMenuButtons/right.png" id="7_n0kcp"]
+[ext_resource type="Texture2D" uid="uid://c2ofcbqwttwug" path="res://Icons/MainMenuButtons/gear.png" id="8_37xt4"]
+[ext_resource type="Texture2D" uid="uid://ccpn13gge3w" path="res://Icons/MainMenuButtons/exit.png" id="9_mdh17"]
+[ext_resource type="Script" uid="uid://ca03qs8pkvkoj" path="res://Util/animation_manager.gd" id="10_x3jur"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="11_sixgq"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_bjx7c"]
+[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="13_3o84h"]
+[ext_resource type="PackedScene" uid="uid://524x05lhcnpr" path="res://Components/Water/water.tscn" id="14_4jfpt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06t4h"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
 [sub_resource type="Sky" id="Sky_7vrkn"]
 sky_material = SubResource("ProceduralSkyMaterial_06t4h")
@@ -26,34 +29,21 @@ tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vrkn"]
 diffuse_mode = 3
-albedo_color = Color(0.6054254, 0.42495042, 0, 1)
+albedo_color = Color(0.605425, 0.42495, 0, 1)
 normal_enabled = true
-normal_texture = ExtResource("1_vr1f0")
+normal_texture = ExtResource("1_6c6cs")
 
 [sub_resource type="SphereMesh" id="SphereMesh_nlkkf"]
 material = SubResource("StandardMaterial3D_7vrkn")
 
 [sub_resource type="Resource" id="Resource_dy7ct"]
-script = ExtResource("7_wyh8j")
+script = ExtResource("12_bjx7c")
 
 [sub_resource type="Resource" id="Resource_8qtwp"]
-script = ExtResource("8_ujyyl")
+script = ExtResource("13_3o84h")
 amplitude = 2.0
 randomize_noise_seed = 1
 metadata/_custom_type_script = "uid://cuffvge5ad4aa"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5v2v"]
-render_priority = 0
-shader = ExtResource("10_4nkqq")
-shader_parameter/WaveHeight = 3.0
-shader_parameter/Direction = Vector2(1, -0.15)
-shader_parameter/Color = Color(0.023286428, 2.4642944e-05, 0.9388461, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_iotk1"]
-material = SubResource("ShaderMaterial_j5v2v")
-size = Vector2(500, 500)
-subdivide_width = 200
-subdivide_depth = 200
 
 [node name="MainMenu" type="Node3D"]
 
@@ -61,7 +51,7 @@ subdivide_depth = 200
 environment = SubResource("Environment_fu7sn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
 [node name="Platform" type="MeshInstance3D" parent="."]
@@ -69,12 +59,12 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -1.5, 0, 3.5)
 mesh = SubResource("SphereMesh_nlkkf")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(0.70598286, 0.22039916, -0.673062, -0.004358261, 0.9516792, 0.30706298, 0.7082156, -0.2138478, 0.67282975, -4, 0.9, 4)
+transform = Transform3D(0.7106797, 0.2161161, -0.6694985, -0.0038715852, 0.95283383, 0.30346787, 0.7035051, -0.21307644, 0.67799634, -4, 0.9, 4)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera"]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("2_t1dhk")
+script = ExtResource("2_fo6ee")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -86,53 +76,87 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
+[node name="GameNameLabel" type="Label" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 159.0
-offset_top = -128.0
-offset_right = 307.0
-offset_bottom = -61.0
+offset_left = -46.0
+offset_top = -236.0
+offset_right = 790.0
+offset_bottom = -51.0
 grow_vertical = 0
-
-[node name="GameNameLabel" type="RichTextLabel" parent="CanvasLayer/UI/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5411765)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.541176)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 7
-theme_override_fonts/normal_font = ExtResource("3_5egv6")
-theme_override_font_sizes/normal_font_size = 50
-bbcode_enabled = true
-text = "Small [wave]Adventure[/wave]"
-fit_content = true
-scroll_active = false
+theme_override_fonts/font = ExtResource("3_nqd6t")
+theme_override_font_sizes/font_size = 70
+text = "Small Adventure"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TapLabel" type="Label" parent="CanvasLayer/UI/VBoxContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -101.0
+offset_right = 881.0
+offset_bottom = -34.0
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="CanvasLayer/UI/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_vtepg")
-text = "( tap or press any key to start )"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_43m2q")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("5_xt57n")
+theme_override_styles/hover = ExtResource("6_os7au")
+text = "Start"
+
+[node name="StartIcon" type="Sprite2D" parent="CanvasLayer/UI/VBoxContainer/StartButton"]
+position = Vector2(35, 34)
+scale = Vector2(0.5975, 0.450289)
+texture = ExtResource("7_n0kcp")
+
+[node name="OptionButton" type="Button" parent="CanvasLayer/UI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_43m2q")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("5_xt57n")
+theme_override_styles/hover = ExtResource("6_os7au")
+text = "options"
+
+[node name="OptionsIcon" type="Sprite2D" parent="CanvasLayer/UI/VBoxContainer/OptionButton"]
+position = Vector2(29, 35)
+scale = Vector2(0.49, 0.49)
+texture = ExtResource("8_37xt4")
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/UI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_43m2q")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("5_xt57n")
+theme_override_styles/hover = ExtResource("6_os7au")
+text = "exit"
+
+[node name="ExitIcon" type="Sprite2D" parent="CanvasLayer/UI/VBoxContainer/ExitButton"]
+position = Vector2(62, 36)
+scale = Vector2(0.545, 0.505)
+texture = ExtResource("9_mdh17")
 
 [node name="AnimationManager" type="Node" parent="."]
-script = ExtResource("5_8dnnj")
+script = ExtResource("10_x3jur")
 
 [node name="PhantomCamera3D" type="Node3D" parent="."]
-transform = Transform3D(0.7071067, 0.21440732, -0.6738172, 1.4901161e-08, 0.95292133, 0.3032177, 0.7071069, -0.21440727, 0.67381704, -4, 0.9, 4)
-script = ExtResource("6_m3bi6")
+transform = Transform3D(0.707107, 0.214407, -0.673817, 1.49012e-08, 0.952921, 0.303218, 0.707107, -0.214407, 0.673817, -4, 0.9, 4)
+script = ExtResource("11_sixgq")
 tween_resource = SubResource("Resource_dy7ct")
 noise = SubResource("Resource_8qtwp")
 
-[node name="Water" parent="." instance=ExtResource("9_mkpwh")]
-transform = Transform3D(0.045529723, 0, 0, 0, 0.045529723, 0, 0, 0, 0.045529723, 0, 0, 0)
-mesh = SubResource("PlaneMesh_iotk1")
-
-[node name="NotificationNode" type="Node" parent="."]
-script = ExtResource("11_ehtkc")
-metadata/_custom_type_script = "uid://cjw0anoirpv46"
+[node name="Water" parent="." instance=ExtResource("14_4jfpt")]
+transform = Transform3D(0.050229326, 0, 0, 0, 0.050229326, 0, 0, 0, 0.050229326, 0, 0, 0)
