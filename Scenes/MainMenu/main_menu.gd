@@ -1,10 +1,11 @@
 extends Node3D
 
-@onready var ExitUI = $"CanvasLayer/UI/ExitUI"
+@onready var ExitUI = $"/root/MainMenu/CanvasLayer/UI/ExitUI"
 @onready var MenuUI = $CanvasLayer/UI/MenuUI
 @onready var OptionsUI = $CanvasLayer/UI/OptionsUI
 
 func _ready() -> void:
+	print_tree_pretty()
 	ExitUI.hide()
 	OptionsUI.hide()
 
