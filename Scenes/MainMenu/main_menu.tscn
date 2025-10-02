@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://86xq8pelpg0k"]
+[gd_scene load_steps=47 format=4 uid="uid://86xq8pelpg0k"]
 
 [ext_resource type="Texture2D" uid="uid://bmdcllmconhxe" path="res://Assets/Models3D/Textures/colormap.png" id="1_6c6cs"]
 [ext_resource type="ArrayMesh" uid="uid://bbq55ic2jovv2" path="res://Resources/sand.tres" id="1_nqd6t"]
@@ -11,13 +11,19 @@
 [ext_resource type="StyleBox" uid="uid://tttj68cvotl7" path="res://Style/MainMenu/TitleButtons/Transparent_Normal.tres" id="5_xt57n"]
 [ext_resource type="StyleBox" uid="uid://dqoo6cywtg4yt" path="res://Style/MainMenu/TitleButtons/Transparent_black_hovering.tres" id="6_os7au"]
 [ext_resource type="Texture2D" uid="uid://21xuyhc7r2ow" path="res://Icons/MainMenuButtons/right.png" id="7_n0kcp"]
+[ext_resource type="FontFile" uid="uid://d335efhmdugux" path="res://Fonts/Buttons/Garet-Book.woff" id="7_os7au"]
 [ext_resource type="Texture2D" uid="uid://c2ofcbqwttwug" path="res://Icons/MainMenuButtons/gear.png" id="8_37xt4"]
+[ext_resource type="FontFile" uid="uid://b5f3hd3ywjym6" path="res://Fonts/SUSE_Mono/static/SUSEMono-SemiBold.ttf" id="8_n0kcp"]
 [ext_resource type="Texture2D" uid="uid://ccpn13gge3w" path="res://Icons/MainMenuButtons/exit.png" id="9_mdh17"]
+[ext_resource type="StyleBox" uid="uid://ix46ot5weqe1" path="res://Style/MainMenu/ExitUI/WhiteHoverTransparent.tres" id="10_37xt4"]
 [ext_resource type="Script" uid="uid://ca03qs8pkvkoj" path="res://Util/animation_manager.gd" id="10_x3jur"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="11_sixgq"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_bjx7c"]
 [ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="13_3o84h"]
 [ext_resource type="PackedScene" uid="uid://524x05lhcnpr" path="res://Components/Water/water.tscn" id="14_4jfpt"]
+[ext_resource type="Script" uid="uid://6qbw7kxji3q1" path="res://Scenes/MainMenu/options_ui.gd" id="16_sixgq"]
+[ext_resource type="StyleBox" uid="uid://cwr4a3qgvfk24" path="res://Style/MainMenu/OptionsUI/GreyRounded.tres" id="16_x3jur"]
+[ext_resource type="FontFile" uid="uid://bmamlyxfrpwqu" path="res://Fonts/SUSE_Mono/static/SUSEMono-Medium.ttf" id="17_sixgq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06t4h"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -58,6 +64,34 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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")
 }]
 shadow_mesh = SubResource("ArrayMesh_os7au")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xt57n"]
+bg_color = Color(0, 0, 0, 0.8784314)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37xt4"]
+bg_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3jur"]
+bg_color = Color(0.21230498, 0.2123048, 0.21230489, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjx7c"]
+bg_color = Color(0.310617, 0.31061715, 0.31061706, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="Resource" id="Resource_dy7ct"]
 script = ExtResource("12_bjx7c")
@@ -167,6 +201,16 @@ _surfaces = [{
 "vertex_data": PackedByteArray("12qUPjjzCT9kbZS+12qUPpJWkT5kbZS+ZG2UvpJWkT5kbZS+ZG2UvjjzCT9kbZS+ZG2UvjjzCT/XapQ+ZG2UvjjzCT9kbZS+ZG2UvpJWkT5kbZS+ZG2UvpJWkT7XapQ+12qUPpJWkT5kbZS+12qUPpJWkT7XapQ+ZG2UvpJWkT7XapQ+ZG2UvpJWkT5kbZS+12qUPpJWkT7XapQ+12qUPpJWkT5kbZS+12qUPjjzCT9kbZS+12qUPjjzCT/XapQ+ZG2UvjjzCT/XapQ+ZG2UvpJWkT7XapQ+12qUPpJWkT7XapQ+12qUPjjzCT/XapQ+UQ+1PpB77LwQlyo/EJcqP5B77LwQlyo/EJcqP5B77LxRD7U+lvIJP5B77LxRD7U+lvIJP5B77LzeEbW+UQ+1PpB77LyW8gk/EJcqP5B77LzeEbW+EJcqP5B77LwQlyq/UQ+1PpB77LwQlyq/UQ+1PpB77Lzc8wm/3hG1vpB77LyW8gk/3hG1vpB77Lzc8wm/3PMJv5B77LxRD7U+3hG1vpB77LwQlyq/EJcqv5B77LwQlyo/3hG1vpB77LwQlyo/EJcqv5B77LxRD7U+3PMJv5B77LzeEbW+EJcqv5B77LwQlyq/EJcqv5B77LzeEbW+EJcqv5B77LwQlyo/EJcqv5B77LxRD7U+EJcqvzjzCT9RD7U+EJcqvzjzCT8Qlyo/EJcqPzjzCT8Qlyo/EJcqPzjzCT9RD7U+EJcqP5B77LxRD7U+EJcqP5B77LwQlyo/lvIJPzjzCT9RD7U+lvIJP5B77LxRD7U+EJcqP5B77LxRD7U+EJcqPzjzCT9RD7U+EJcqvzjzCT9RD7U+EJcqv5B77LxRD7U+3PMJv5B77LxRD7U+3PMJvzjzCT9RD7U+3hG1vjjzCT/c8wm/3hG1vjjzCT8Qlyq/3hG1vpB77LwQlyq/3hG1vpB77Lzc8wm/3hG1vjjzCT8Qlyo/3hG1vjjzCT+W8gk/3hG1vpB77LyW8gk/3hG1vpB77LwQlyo/UQ+1PjjzCT8Qlyq/UQ+1PpB77LwQlyq/EJcqP5B77LwQlyq/EJcqPzjzCT8Qlyq/3hG1vjjzCT8Qlyo/3hG1vpB77LwQlyo/EJcqv5B77LwQlyo/EJcqvzjzCT8Qlyo/EJcqvzjzCT8Qlyq/EJcqv5B77LwQlyq/3hG1vpB77LwQlyq/3hG1vjjzCT8Qlyq/EJcqPzjzCT/eEbW+EJcqPzjzCT8Qlyq/EJcqP5B77LwQlyq/EJcqP5B77LzeEbW+EJcqPzjzCT/eEbW+EJcqP5B77LzeEbW+lvIJP5B77LzeEbW+lvIJPzjzCT/eEbW+EJcqv5B77LzeEbW+EJcqv5B77LwQlyq/EJcqvzjzCT8Qlyq/EJcqvzjzCT/eEbW+3PMJvzjzCT/eEbW+3PMJv5B77LzeEbW+EJcqv5B77LzeEbW+EJcqvzjzCT/eEbW+UQ+1PpB77LwQlyo/UQ+1PpB77LyW8gk/UQ+1PjjzCT+W8gk/UQ+1PjjzCT8Qlyo/UQ+1PpB77Lzc8wm/UQ+1PpB77LwQlyq/UQ+1PjjzCT8Qlyq/UQ+1PjjzCT/c8wm/EJcqPzjzCT8Qlyo/EJcqP5B77LwQlyo/UQ+1PpB77LwQlyo/UQ+1PjjzCT8Qlyo/3hG1vjjzCT+W8gk/3hG1vjjzCT8Qlyo/EJcqvzjzCT8Qlyo/3PMJvzjzCT9RD7U+EJcqvzjzCT9RD7U+EJcqPzjzCT9RD7U+EJcqPzjzCT8Qlyo/UQ+1PjjzCT8Qlyo/lvIJPzjzCT9RD7U+UQ+1PjjzCT+W8gk/3hG1vjjzCT8Qlyq/3hG1vjjzCT/c8wm/3PMJvzjzCT/eEbW+EJcqvzjzCT8Qlyq/EJcqvzjzCT/eEbW+EJcqPzjzCT8Qlyq/EJcqPzjzCT/eEbW+lvIJPzjzCT/eEbW+UQ+1PjjzCT8Qlyq/UQ+1PjjzCT/c8wm/UQ+1PjjzCT+W8gk/UQ+1PpB77LyW8gk/3hG1vpB77LyW8gk/3hG1vjjzCT+W8gk/3PMJv5B77LxRD7U+3PMJv5B77LzeEbW+3PMJvzjzCT/eEbW+3PMJvzjzCT9RD7U+lvIJPzjzCT9RD7U+lvIJPzjzCT/eEbW+lvIJP5B77LzeEbW+lvIJP5B77LxRD7U+3hG1vjjzCT/c8wm/3hG1vpB77Lzc8wm/UQ+1PpB77Lzc8wm/UQ+1PjjzCT/c8wm/3PMJvzjzCT9RD7U+3PMJvzjzCT/eEbW+3hG1vjjzCT/c8wm/3hG1vjjzCT+W8gk/ZG2UvjjzCT9kbZS+ZG2UvjjzCT/XapQ+12qUPjjzCT9kbZS+12qUPjjzCT/XapQ+UQ+1PjjzCT/c8wm/UQ+1PjjzCT+W8gk/lvIJPzjzCT/eEbW+lvIJPzjzCT9RD7U+/X//f/3//7/9f/9//f//v/1//3/9//+//X//f/3//7/9/wCA/v/+//3/AID+//7//f8AgP7//v/9/wCA/v/+//5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6/AQD/fwCA/78BAP9/AID/vwEA/38AgP+/AQD/fwCA/7/+/wAAAAD/v/7/AAAAAP+//v8AAAAA/7/+/wAAAAD/vwCAAQD+//+/AIABAP7//78AgAEA/v//vwCAAQD+//+/AIABAP7//78AgAEA/v//vwCAAQD+//+/AIABAP7//78AgAEA/v//vwCAAQD+//+/AIABAP7//78AgAEA/v//vwCAAQD+//+/AIABAP7//78AgAEA/v//vwCAAQD+//+/AIABAP7//78AgAEA/v//vwCAAQD+//+/AIABAP7//78BAP9/AID/vwEA/38AgP+/AQD/fwCA/78BAP9/AID/v/3/AID+//7//f8AgP7//v/9/wCA/v/+//3/AID+//7//v8AAAAA/7/+/wAAAAD/v/7/AAAAAP+//v8AAAAA/7/+/wAAAAD/v/7/AAAAAP+//v8AAAAA/7/+/wAAAAD/v/3/AID+//7//f8AgP7//v/9/wCA/v/+//3/AID+//7//f8AgP7//v/9/wCA/v/+//3/AID+//7//f8AgP7//v/+/wAAAAD/v/7/AAAAAP+//v8AAAAA/7/+/wAAAAD/v/1//3/9//+//X//f/3//7/9f/9//f//v/1//3/9//+//v8AAAAA/7/+/wAAAAD/v/7/AAAAAP+//v8AAAAA/7/9/wCA/v/+//3/AID+//7//f8AgP7//v/9/wCA/v/+//1//3/9//+//X//f/3//7/9f/9//f//v/1//3/9//+/AQD/fwCA/78BAP9/AID/vwEA/38AgP+/AQD/fwCA/7/9f/9//f//v/1//3/9//+//X//f/3//7/9f/9//f//vwEA/38AgP+/AQD/fwCA/78BAP9/AID/vwEA/38AgP+/AQD/fwCA/78BAP9/AID/vwEA/38AgP+/AQD/fwCA/7/9f/9//f//v/1//3/9//+//X//f/3//7/9f/9//f//v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6//n/+/wAA/r/9f/9//f//v/1//3/9//+//X//f/3//7/9f/9//f//vwEA/38AgP+/AQD/fwCA/78BAP9/AID/vwEA/38AgP+//f8AgP7//v/9/wCA/v/+//3/AID+//7//f8AgP7//v/+/wAAAAD/v/7/AAAAAP+//v8AAAAA/7/+/wAAAAD/v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+vw==")
 }]
 
+[sub_resource type="Animation" id="Animation_pwesn"]
+resource_name = "close"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("chest/lid")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.3826835, 0, 0, -0.92387956, 0.033333335, 1, 0.37963277, 0, 0, -0.9251373, 0.06666667, 1, 0.37045613, 0, 0, -0.92885, 0.1, 1, 0.35508144, 0, 0, -0.9348354, 0.13333334, 1, 0.33339554, 0, 0, -0.94278705, 0.16666667, 1, 0.3052539, 0, 0, -0.95227104, 0.2, 1, 0.27049538, 0, 0, -0.9627213, 0.23333333, 1, 0.22896148, 0, 0, -0.97343546, 0.26666668, 1, 0.18051912, 0, 0, -0.9835715, 0.3, 1, 0.1177811, 0, 0, -0.9930396, 0.33333334, 1, 0.06268162, 0, 0, -0.9980336, 0.36666667, 1, 0.03882381, 0, 0, -0.99924606, 0.4, 1, 0.03533558, 0, 0, -0.9993755, 0.43333334, 1, 0.0546779, 0, 0, -0.99850404, 0.46666667, 1, 0.079655245, 0, 0, -0.9968225, 0.5, 1, 0.091908954, 0, 0, -0.9957674, 0.53333336, 1, 0.09758291, 0, 0, -0.9952274, 0.56666666, 1, 0.09668721, 0, 0, -0.99531484, 0.6, 1, 0.08922023, 0, 0, -0.9960119, 0.6333333, 1, 0.0745572, 0, 0, -0.99721676, 0.6666667, 1, 0.05451448, 0, 0, -0.998513, 0.7, 1, 0.025400003, 0, 0, -0.99967736, 0.73333335, 1, 0.0031634087, 0, 0, -0.999995, 0.76666665, 1, 0.01052633, 0, 0, -0.9999446, 0.8, 1, 0.023559747, 0, 0, -0.9997224, 0.8333333, 1, 0.022632798, 0, 0, -0.9997439, 0.8666667, 1, 0.017561466, 0, 0, -0.99984586, 0.9, 1, 0.011105796, 0, 0, -0.99993837, 0.93333334, 1, 0.004799644, 0, 0, -0.9999885, 0.96666664, 1, 0.0023998274, 0, 0, -0.99999714, 1, 1, 0, 0, 0, -1)
+
 [sub_resource type="Animation" id="Animation_8btnd"]
 resource_name = "open"
 length = 0.3
@@ -177,16 +221,6 @@ tracks/0/path = NodePath("chest/lid")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 8.719672e-17, 0, 0, -1, 0.033333335, 1, 0.17463371, 0, 0, -0.9846335, 0.06666667, 1, 0.29340082, 0, 0, -0.95598954, 0.1, 1, 0.36658674, 0, 0, -0.9303839, 0.13333334, 1, 0.40502086, 0, 0, -0.9143075, 0.16666667, 1, 0.4183024, 0, 0, -0.90830785, 0.2, 1, 0.41473508, 0, 0, -0.9099422, 0.23333333, 1, 0.4023035, 0, 0, -0.9155064, 0.3, 1, 0.3826835, 0, 0, -0.92387956)
-
-[sub_resource type="Animation" id="Animation_pwesn"]
-resource_name = "close"
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("chest/lid")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.3826835, 0, 0, -0.92387956, 0.033333335, 1, 0.37963277, 0, 0, -0.9251373, 0.06666667, 1, 0.37045613, 0, 0, -0.92885, 0.1, 1, 0.35508144, 0, 0, -0.9348354, 0.13333334, 1, 0.33339554, 0, 0, -0.94278705, 0.16666667, 1, 0.3052539, 0, 0, -0.95227104, 0.2, 1, 0.27049538, 0, 0, -0.9627213, 0.23333333, 1, 0.22896148, 0, 0, -0.97343546, 0.26666668, 1, 0.18051912, 0, 0, -0.9835715, 0.3, 1, 0.1177811, 0, 0, -0.9930396, 0.33333334, 1, 0.06268162, 0, 0, -0.9980336, 0.36666667, 1, 0.03882381, 0, 0, -0.99924606, 0.4, 1, 0.03533558, 0, 0, -0.9993755, 0.43333334, 1, 0.0546779, 0, 0, -0.99850404, 0.46666667, 1, 0.079655245, 0, 0, -0.9968225, 0.5, 1, 0.091908954, 0, 0, -0.9957674, 0.53333336, 1, 0.09758291, 0, 0, -0.9952274, 0.56666666, 1, 0.09668721, 0, 0, -0.99531484, 0.6, 1, 0.08922023, 0, 0, -0.9960119, 0.6333333, 1, 0.0745572, 0, 0, -0.99721676, 0.6666667, 1, 0.05451448, 0, 0, -0.998513, 0.7, 1, 0.025400003, 0, 0, -0.99967736, 0.73333335, 1, 0.0031634087, 0, 0, -0.999995, 0.76666665, 1, 0.01052633, 0, 0, -0.9999446, 0.8, 1, 0.023559747, 0, 0, -0.9997224, 0.8333333, 1, 0.022632798, 0, 0, -0.9997439, 0.8666667, 1, 0.017561466, 0, 0, -0.99984586, 0.9, 1, 0.011105796, 0, 0, -0.99993837, 0.93333334, 1, 0.004799644, 0, 0, -0.9999885, 0.96666664, 1, 0.0023998274, 0, 0, -0.99999714, 1, 1, 0, 0, 0, -1)
 
 [sub_resource type="Animation" id="Animation_1u7rg"]
 resource_name = "open-close"
@@ -233,7 +267,7 @@ mesh = SubResource("ArrayMesh_xt57n")
 mesh = SubResource("ArrayMesh_os7au")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(0.7071024, 0.21249604, -0.67442685, 0.0035705825, 0.95269257, 0.30391464, 0.7071022, -0.21730688, 0.6728925, -7, 2, 6.5)
+transform = Transform3D(0.70522785, 0.21532442, -0.67549175, -0.0037143677, 0.9538736, 0.30018547, 0.708971, -0.20919012, 0.67349803, -7, 2, 6.5)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera"]
 process_priority = 300
@@ -250,15 +284,146 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameNameLabel" type="Label" parent="CanvasLayer/UI"]
+[node name="ExitUI" type="Control" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/UI/ExitUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -388.943
+offset_top = -111.5
+offset_right = 388.943
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xt57n")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/ExitUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.5
+offset_top = -59.5
+offset_right = 349.5
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_os7au")
+theme_override_font_sizes/font_size = 41
+text = "Are sure you want to quit game?"
+
+[node name="ExitButtons" type="Control" parent="CanvasLayer/UI/ExitUI/Panel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ExitNoButton" type="Button" parent="CanvasLayer/UI/ExitUI/Panel/ExitButtons"]
+layout_mode = 0
+offset_left = 489.943
+offset_top = 142.0
+offset_right = 609.943
+offset_bottom = 194.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_n0kcp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("5_xt57n")
+theme_override_styles/hover = ExtResource("10_37xt4")
+text = "No
+"
+
+[node name="ExitYesButton" type="Button" parent="CanvasLayer/UI/ExitUI/Panel/ExitButtons"]
+layout_mode = 0
+offset_left = 161.943
+offset_top = 140.0
+offset_right = 281.943
+offset_bottom = 192.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_n0kcp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("5_xt57n")
+theme_override_styles/hover = ExtResource("10_37xt4")
+text = "Yes"
+
+[node name="MenuUI" type="Control" parent="CanvasLayer/UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuButtons" type="HBoxContainer" parent="CanvasLayer/UI/MenuUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 507.0
+offset_right = 881.0
+offset_bottom = 574.0
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="CanvasLayer/UI/MenuUI/MainMenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_43m2q")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("5_xt57n")
+theme_override_styles/hover = ExtResource("6_os7au")
+text = "Start"
+
+[node name="StartIcon" type="Sprite2D" parent="CanvasLayer/UI/MenuUI/MainMenuButtons/StartButton"]
+position = Vector2(35, 34)
+scale = Vector2(0.5975, 0.450289)
+texture = ExtResource("7_n0kcp")
+
+[node name="OptionButton" type="Button" parent="CanvasLayer/UI/MenuUI/MainMenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_43m2q")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("5_xt57n")
+theme_override_styles/hover = ExtResource("6_os7au")
+text = "options"
+
+[node name="OptionsIcon" type="Sprite2D" parent="CanvasLayer/UI/MenuUI/MainMenuButtons/OptionButton"]
+position = Vector2(29, 35)
+scale = Vector2(0.49, 0.49)
+texture = ExtResource("8_37xt4")
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/UI/MenuUI/MainMenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_43m2q")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("5_xt57n")
+theme_override_styles/hover = ExtResource("6_os7au")
+text = "exit"
+
+[node name="ExitIcon" type="Sprite2D" parent="CanvasLayer/UI/MenuUI/MainMenuButtons/ExitButton"]
+position = Vector2(62, 36)
+scale = Vector2(0.545, 0.505)
+texture = ExtResource("9_mdh17")
+
+[node name="GameNameLabel" type="Label" parent="CanvasLayer/UI/MenuUI"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = -46.0
-offset_top = -236.0
+offset_top = 372.0
 offset_right = 790.0
-offset_bottom = -51.0
+offset_bottom = 557.0
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.541176)
 theme_override_constants/shadow_offset_x = 3
@@ -270,58 +435,229 @@ text = "Small Adventure"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
+[node name="OptionsUI" type="Control" parent="CanvasLayer/UI"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -101.0
-offset_right = 881.0
-offset_bottom = -34.0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_sixgq")
 
-[node name="StartButton" type="Button" parent="CanvasLayer/UI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("4_43m2q")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("5_xt57n")
-theme_override_styles/hover = ExtResource("6_os7au")
-text = "Start"
+[node name="Credits" type="Panel" parent="CanvasLayer/UI/OptionsUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -388.943
+offset_top = -217.0
+offset_right = 388.943
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xt57n")
 
-[node name="StartIcon" type="Sprite2D" parent="CanvasLayer/UI/VBoxContainer/StartButton"]
-position = Vector2(35, 34)
-scale = Vector2(0.5975, 0.450289)
-texture = ExtResource("7_n0kcp")
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.5
+offset_top = -32.0
+offset_right = 305.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_os7au")
+theme_override_font_sizes/font_size = 46
+text = "         A game made by:-
+ATU_Studios,StickyCoolDEV"
 
-[node name="OptionButton" type="Button" parent="CanvasLayer/UI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("4_43m2q")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("5_xt57n")
-theme_override_styles/hover = ExtResource("6_os7au")
-text = "options"
+[node name="Main" type="Panel" parent="CanvasLayer/UI/OptionsUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -388.943
+offset_top = -217.0
+offset_right = 388.943
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xt57n")
 
-[node name="OptionsIcon" type="Sprite2D" parent="CanvasLayer/UI/VBoxContainer/OptionButton"]
-position = Vector2(29, 35)
-scale = Vector2(0.49, 0.49)
-texture = ExtResource("8_37xt4")
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.5
+offset_top = -32.0
+offset_right = 305.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_os7au")
+theme_override_font_sizes/font_size = 46
+text = "Function not available yet :("
 
-[node name="ExitButton" type="Button" parent="CanvasLayer/UI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("4_43m2q")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("5_xt57n")
-theme_override_styles/hover = ExtResource("6_os7au")
-text = "exit"
+[node name="OptionsLabelShadow" type="Panel" parent="CanvasLayer/UI/OptionsUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.0
+offset_top = -251.0
+offset_right = -141.0
+offset_bottom = -188.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_37xt4")
 
-[node name="ExitIcon" type="Sprite2D" parent="CanvasLayer/UI/VBoxContainer/ExitButton"]
-position = Vector2(62, 36)
-scale = Vector2(0.545, 0.505)
-texture = ExtResource("9_mdh17")
+[node name="OptionsLabel" type="Panel" parent="CanvasLayer/UI/OptionsUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -415.0
+offset_top = -259.0
+offset_right = -145.0
+offset_bottom = -196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("16_x3jur")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionsLabel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -26.5
+offset_right = 86.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_nqd6t")
+theme_override_font_sizes/font_size = 41
+text = "Options"
+
+[node name="OptionMainButton" type="Button" parent="CanvasLayer/UI/OptionsUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -242.0
+offset_right = -22.0
+offset_bottom = -195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = ExtResource("16_x3jur")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x3jur")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bjx7c")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionMainButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -20.0
+offset_right = 37.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("17_sixgq")
+theme_override_font_sizes/font_size = 31
+text = "Main"
+
+[node name="OptionCreditsButton" type="Button" parent="CanvasLayer/UI/OptionsUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -242.0
+offset_right = 131.0
+offset_bottom = -195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = ExtResource("16_x3jur")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x3jur")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bjx7c")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionCreditsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -20.0
+offset_right = 37.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("17_sixgq")
+theme_override_font_sizes/font_size = 31
+text = "Credits"
+
+[node name="OptionExit" type="Button" parent="CanvasLayer/UI/OptionsUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 351.0
+offset_top = -242.0
+offset_right = 402.0
+offset_bottom = -195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = ExtResource("16_x3jur")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x3jur")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bjx7c")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionExit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -20.0
+offset_right = 9.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("17_sixgq")
+theme_override_font_sizes/font_size = 31
+text = "X"
 
 [node name="AnimationManager" type="Node" parent="."]
 script = ExtResource("10_x3jur")
@@ -359,6 +695,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_te08t")
 }
 
-[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/ExitUI/Panel/ExitButtons/ExitNoButton" to="." method="_on_exit_no_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/ExitUI/Panel/ExitButtons/ExitYesButton" to="." method="_on_exit_yes_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/MenuUI/MainMenuButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/MenuUI/MainMenuButtons/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/MenuUI/MainMenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/OptionsUI/OptionMainButton" to="CanvasLayer/UI/OptionsUI" method="_on_option_main_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/OptionsUI/OptionCreditsButton" to="CanvasLayer/UI/OptionsUI" method="_on_option_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/OptionsUI/OptionExit" to="." method="_on_option_exit_pressed"]

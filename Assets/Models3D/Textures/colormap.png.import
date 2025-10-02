@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmdcllmconhxe"
-path.etc2="res://.godot/imported/colormap.png-2490765db41fedd2811c2dc6c6803835.etc2.ctex"
+path.s3tc="res://.godot/imported/colormap.png-2490765db41fedd2811c2dc6c6803835.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models3D/Textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-2490765db41fedd2811c2dc6c6803835.etc2.ctex"]
+dest_files=["res://.godot/imported/colormap.png-2490765db41fedd2811c2dc6c6803835.s3tc.ctex"]
 
 [params]
 
