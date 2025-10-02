@@ -97,6 +97,11 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
+	if character_label.text == "":
+		dialogue_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	else :
+		dialogue_label.horizontal_alignment  = HORIZONTAL_ALIGNMENT_LEFT
+	
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line

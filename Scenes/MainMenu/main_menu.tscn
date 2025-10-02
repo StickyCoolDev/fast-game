@@ -233,7 +233,7 @@ surface_material_override/0 = ExtResource("3_43m2q")
 mesh = SubResource("ArrayMesh_os7au")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(0.7137432, 0.210004, -0.6681833, 0.0009923256, 0.9536881, 0.30079556, 0.7004069, -0.21535382, 0.68047994, -7, 2, 6.5)
+transform = Transform3D(0.70965403, 0.21221828, -0.67182934, 0.0021287666, 0.9529073, 0.3032542, 0.7045472, -0.2166357, 0.6757827, -7, 2, 6.5)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera"]
 process_priority = 300
