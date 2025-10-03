@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cid6ko4xlq07e"]
+[gd_scene load_steps=11 format=4 uid="uid://cid6ko4xlq07e"]
 
 [ext_resource type="Script" uid="uid://rrxdsp4ycuc3" path="res://Components/Player/player.gd" id="1_ybsxw"]
 [ext_resource type="Material" uid="uid://cfr5ntg4b430v" path="res://Resources/Material/outline.tres" id="2_ttgis"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_0byis"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_fsk6u"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_4srlr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttgis"]
 diffuse_mode = 3
@@ -25,6 +28,9 @@ _surfaces = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jmpx3"]
 
+[sub_resource type="Resource" id="Resource_pfipk"]
+script = ExtResource("4_fsk6u")
+
 [node name="Player3d" type="CharacterBody3D"]
 script = ExtResource("1_ybsxw")
 
@@ -37,3 +43,22 @@ surface_material_override/0 = ExtResource("2_ttgis")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_jmpx3")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(-1, 5.0766666e-08, -7.117224e-08, 0, 0.8141155, 0.58070296, 8.742278e-08, 0.58070296, -0.8141155, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+spring_length = 5.0
+
+[node name="PhantomCamera3D" type="Node3D" parent="CameraPivot/SpringArm3D"]
+script = ExtResource("3_0byis")
+tween_resource = SubResource("Resource_pfipk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(-1, 5.0766666e-08, -7.117224e-08, 0, 0.8141155, 0.58070296, 8.742278e-08, 0.58070296, -0.8141155, 0, 0, 0)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_4srlr")
