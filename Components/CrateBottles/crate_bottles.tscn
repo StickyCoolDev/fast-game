@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://cx2qymj8x8ghc"]
+[gd_scene load_steps=13 format=4 uid="uid://cx2qymj8x8ghc"]
 
 [ext_resource type="Texture2D" uid="uid://bmdcllmconhxe" path="res://Assets/Models3D/Textures/colormap.png" id="1_wdjso"]
 [ext_resource type="Script" uid="uid://cppw2f30ovt4h" path="res://Components/CrateBottles/crate_bottles.gd" id="2_jocej"]
 [ext_resource type="Material" uid="uid://cfr5ntg4b430v" path="res://Resources/Material/outline.tres" id="2_ogr2n"]
+[ext_resource type="Texture2D" uid="uid://21xuyhc7r2ow" path="res://Icons/MainMenuButtons/right.png" id="4_jocej"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u67ww"]
 resource_name = "colormap"
@@ -60,6 +61,44 @@ _surfaces = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_ar153"]
 size = Vector3(2, 2, 3)
 
+[sub_resource type="Animation" id="Animation_ar153"]
+resource_name = "bob"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractMark:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [Vector3(0, 1.5, 0), Vector3(0, 1.3, 0), Vector3(0, 1.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yo0ny"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractMark:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qaaq3"]
+_data = {
+&"RESET": SubResource("Animation_yo0ny"),
+&"bob": SubResource("Animation_ar153")
+}
+
 [node name="crate-bottles" type="MeshInstance3D"]
 mesh = SubResource("ArrayMesh_e7aq7")
 skeleton = NodePath("")
@@ -74,5 +113,16 @@ surface_material_override/0 = ExtResource("2_ogr2n")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_ar153")
+
+[node name="InteractMark" type="Sprite3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 1.5, 0)
+texture = ExtResource("4_jocej")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qaaq3")
+}
+autoplay = "bob"
+speed_scale = 0.9
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
