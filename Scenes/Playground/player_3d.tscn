@@ -31,7 +31,7 @@ _surfaces = [{
 [sub_resource type="Resource" id="Resource_pfipk"]
 script = ExtResource("4_fsk6u")
 
-[node name="Player3d" type="CharacterBody3D"]
+[node name="Player3d" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_ybsxw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

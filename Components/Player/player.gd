@@ -77,3 +77,5 @@ func _physics_process(delta: float) -> void:
 			#_skin.move()
 		#else:
 			#_skin.idle()
+	if position.y < -20:
+		position = Vector3.ZERO
