@@ -19,7 +19,7 @@ var _gravity := -30.0
 @onready var _camera_pivot: Node3D = $CameraPivot
 @onready var _camera: PhantomCamera3D = $CameraPivot/SpringArm3D/PhantomCamera3D
 
-
+var _close_object : Node3D = null
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -77,5 +77,26 @@ func _physics_process(delta: float) -> void:
 			#_skin.move()
 		#else:
 			#_skin.idle()
+	
+	# reset the position if they are lower than -20
 	if position.y < -20:
 		position = Vector3.ZERO
+
+
+func _process(_delta: float) -> void:
+	if _close_object:
+		if Input.is_action_pressed("Interact"):
+			handle_interaction(_close_object)
+
+func handle_interaction(interactble_body : Node3D) -> void:
+	if interactble_body.is_in_group("Interactable"):
+		interactble_body.interact()
+		print('INFo : interact ')
+
+func _on_detect_area_body_entered(body: Node3D) -> void:
+	_close_object = body
+
+
+func _on_detect_area_body_exited(body: Node3D) -> void:
+	if _close_object == body:
+		_close_object = null

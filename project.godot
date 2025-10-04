@@ -20,10 +20,11 @@ config/icon="res://icon.svg"
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Ui="*res://Components/UI/ui.tscn"
 
 [dialogue_manager]
 
-runtime/balloon_path="res://Components/DialogueBallon/balloon.tscn"
+runtime/balloon_path="uid://b0j8pglurjlyy"
 
 [editor_plugins]
 
@@ -32,6 +33,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 [global_group]
 
 Player=""
+Interactable=""
 
 [input]
 

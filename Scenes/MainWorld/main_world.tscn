@@ -308,7 +308,7 @@ nodes/fragment/connections = PackedInt32Array(4, 0, 0, 3, 2, 0, 6, 0, 5, 0, 7, 0
 render_priority = 0
 shader = SubResource("VisualShader_amcec")
 shader_parameter/WaveHeight = 7.0
-shader_parameter/Direction = Vector2(1, -0.5)
+shader_parameter/Direction = Vector2(0.5, -0.25)
 shader_parameter/Color = Color(0.053335838, 0.25513953, 0.9999904, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_k5aiy"]
@@ -561,7 +561,7 @@ mesh = SubResource("ArrayMesh_uq5dp")
 surface_material_override/0 = ExtResource("3_4qooy")
 
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 11.484994, 0, 16.770348)
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 10.417859, 0.30104446, 16.822302)
 mesh = SubResource("PlaneMesh_k5aiy")
 
 [node name="Player3d" parent="." instance=ExtResource("3_u0nld")]
