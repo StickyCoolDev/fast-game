@@ -100,3 +100,7 @@ func _on_detect_area_body_entered(body: Node3D) -> void:
 func _on_detect_area_body_exited(body: Node3D) -> void:
 	if _close_object == body:
 		_close_object = null
+
+
+func _on_detection_area_body_exited(body: Node3D) -> void:
+	pass # Replace with function body.
