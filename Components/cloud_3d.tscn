@@ -24,3 +24,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_uoo85")
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.32300496, 0.4, 0.26640487)
 mesh = SubResource("SphereMesh_p1ant")
 surface_material_override/0 = SubResource("StandardMaterial3D_uoo85")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.32300496, 0.4, -0.13096553)
+mesh = SubResource("SphereMesh_p1ant")
+surface_material_override/0 = SubResource("StandardMaterial3D_uoo85")

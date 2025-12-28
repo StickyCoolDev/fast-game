@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://cx2qymj8x8ghc"]
+[gd_scene load_steps=14 format=4 uid="uid://cx2qymj8x8ghc"]
 
 [ext_resource type="Texture2D" uid="uid://bmdcllmconhxe" path="res://Assets/Models3D/Textures/colormap.png" id="1_wdjso"]
 [ext_resource type="Script" uid="uid://cppw2f30ovt4h" path="res://Components/CrateBottles/crate_bottles.gd" id="2_jocej"]
 [ext_resource type="Material" uid="uid://cfr5ntg4b430v" path="res://Resources/Material/outline.tres" id="2_ogr2n"]
 [ext_resource type="PackedScene" uid="uid://crgm1gl1jgyc7" path="res://Components/mark_3d.tscn" id="4_jocej"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="5_qaaq3"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_r8h21"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_fikjc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u67ww"]
 resource_name = "colormap"
@@ -61,6 +64,9 @@ _surfaces = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_jocej"]
 size = Vector3(1, 0.6759033, 1.3309937)
 
+[sub_resource type="Resource" id="Resource_1e3u8"]
+script = ExtResource("6_r8h21")
+
 [node name="crate-bottles" type="MeshInstance3D" groups=["Interactable"]]
 mesh = SubResource("ArrayMesh_e7aq7")
 skeleton = NodePath("")
@@ -78,3 +84,21 @@ shape = SubResource("BoxShape3D_jocej")
 
 [node name="Mark3d" parent="." instance=ExtResource("4_jocej")]
 visible = false
+
+[node name="PhantomCamera3D" type="Node3D" parent="."]
+transform = Transform3D(-0.75470966, 0, 0.65605897, 0, 1, 0, -0.65605897, 0, -0.75470966, 2.0603013, 1.1814709, -2.878458)
+script = ExtResource("5_qaaq3")
+tween_resource = SubResource("Resource_1e3u8")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.75470966, 0, 0.65605897, 0, 1, 0, -0.65605897, 0, -0.75470966, 2.0603013, 1.1814709, -2.878458)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("7_fikjc")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="StaticBody3D" method="_on_visible_on_screen_notifier_3d_screen_entered"]

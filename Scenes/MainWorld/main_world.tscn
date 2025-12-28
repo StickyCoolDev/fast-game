@@ -570,7 +570,7 @@ transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 10.417859, 0.3010
 mesh = SubResource("PlaneMesh_k5aiy")
 
 [node name="Player3d" parent="." instance=ExtResource("3_u0nld")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5592155, 2.8175745, 2.9838185)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5592155, 2.8175745, 5.9838185)
 
 [node name="Dock" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41123152, 0.99238014)

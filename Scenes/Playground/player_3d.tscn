@@ -55,6 +55,7 @@ spring_length = 5.0
 
 [node name="PhantomCamera3D" type="Node3D" parent="CameraPivot/SpringArm3D"]
 script = ExtResource("3_0byis")
+priority = 1
 tween_resource = SubResource("Resource_pfipk")
 
 [node name="Camera3D" type="Camera3D" parent="."]

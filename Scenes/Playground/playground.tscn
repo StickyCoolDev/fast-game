@@ -38,6 +38,7 @@ material = SubResource("StandardMaterial3D_dbwwm")
 
 [node name="Player3d" parent="." instance=ExtResource("1_oyxf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7678492, 0)
+mouse_sensitivity = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.8083609, -0.22617878, 0.5435032, 0.011351213, 0.9290631, 0.36974674, -0.5885777, -0.29271936, 0.7535858, 4.385, 2.901, 5.353)
