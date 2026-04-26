@@ -11,7 +11,7 @@ shader_parameter/Color = Color(0.053335838, 0.25513953, 0.9999904, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_athm3"]
 material = SubResource("ShaderMaterial_rbbj0")
-size = Vector2(500, 500)
+size = Vector2(1000, 1000)
 subdivide_width = 200
 subdivide_depth = 200
 
