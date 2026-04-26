@@ -102,5 +102,5 @@ func _on_detect_area_body_exited(body: Node3D) -> void:
 		_close_object = null
 
 
-func _on_detection_area_body_exited(body: Node3D) -> void:
+func _on_detection_area_body_exited(_body: Node3D) -> void:
 	pass # Replace with function body.

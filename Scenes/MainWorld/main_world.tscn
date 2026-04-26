@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://sli6tvhsngbu"]
+[gd_scene format=4 uid="uid://sli6tvhsngbu"]
 
 [ext_resource type="ArrayMesh" uid="uid://bsv2v88imnx2g" path="res://Resources/Material/grass_p.tres" id="1_4qooy"]
 [ext_resource type="ArrayMesh" uid="uid://bbq55ic2jovv2" path="res://Resources/sand.tres" id="2_u0nld"]
@@ -127,137 +127,6 @@ varying_type = 4
 input_name = "time"
 
 [sub_resource type="VisualShader" id="VisualShader_amcec"]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
-
-
-// Varyings
-varying vec3 var_texture_v;
-
-uniform float WaveHeight = 20.0;
-uniform vec2 Direction;
-uniform sampler2D tex_vtx_4;
-uniform sampler2D depth_tex_frg_9 : hint_depth_texture;
-uniform vec4 Color : source_color = vec4(0.188235, 0.407843, 1.000000, 1.000000);
-
-
-
-void vertex() {
-// Input:2
-	vec3 n_out2p0 = VERTEX;
-
-
-// FloatParameter:5
-	float n_out5p0 = WaveHeight;
-
-
-// Input:9
-	float n_out9p0 = TIME;
-
-
-// FloatOp:10
-	float n_in10p1 = 0.04000;
-	float n_out10p0 = n_out9p0 * n_in10p1;
-
-
-// Vector2Parameter:11
-	vec2 n_out11p0 = Direction;
-
-
-// VectorOp:12
-	vec2 n_out12p0 = vec2(n_out10p0) * n_out11p0;
-
-
-// UVFunc:8
-	vec2 n_in8p1 = vec2(1.00000, 1.00000);
-	vec2 n_out8p0 = n_out12p0 * n_in8p1 + UV;
-
-
-// Texture2D:4
-	vec4 n_out4p0 = texture(tex_vtx_4, n_out8p0);
-
-
-// VectorOp:6
-	vec3 n_out6p0 = vec3(n_out5p0) * vec3(n_out4p0.xyz);
-
-
-// VectorOp:3
-	vec3 n_out3p0 = n_out2p0 + n_out6p0;
-
-
-// Output:0
-	VERTEX = n_out3p0;
-
-
-// VaryingSetter:7
-	var_texture_v = vec3(n_out4p0.xyz);
-
-
-}
-
-void fragment() {
-	float n_out9p0;
-// ProximityFade:9
-	float n_in9p0 = 1.00000;
-	{
-		float __depth_tex = texture(depth_tex_frg_9, SCREEN_UV).r;
-		vec4 __depth_world_pos = INV_PROJECTION_MATRIX * vec4(vec3(SCREEN_UV, __depth_tex) * 2.0 - 1.0, 1.0);
-		__depth_world_pos.xyz /= __depth_world_pos.w;
-		n_out9p0 = clamp(1.0 - smoothstep(__depth_world_pos.z + n_in9p0, __depth_world_pos.z, VERTEX.z), 0.0, 1.0);
-	}
-
-
-// FloatFunc:11
-	float n_out11p0 = 1.0 - n_out9p0;
-
-
-// FloatOp:12
-	float n_in12p1 = 0.50000;
-	float n_out12p0 = n_out11p0 * n_in12p1;
-
-
-// ColorParameter:2
-	vec4 n_out2p0 = Color;
-
-
-// VaryingGetter:5
-	vec3 n_out5p0 = var_texture_v;
-
-
-// FloatOp:7
-	float n_in7p1 = 2.00000;
-	float n_out7p0 = pow(n_out5p0.x, n_in7p1);
-
-
-// FloatOp:8
-	float n_in8p1 = 0.50000;
-	float n_out8p0 = n_out7p0 * n_in8p1;
-
-
-// VectorOp:6
-	vec3 n_out6p0 = vec3(n_out2p0.xyz) + vec3(n_out8p0);
-
-
-// VectorOp:10
-	vec3 n_out10p0 = vec3(n_out12p0) + n_out6p0;
-
-
-// FloatConstant:3
-	float n_out3p0 = 0.850000;
-
-
-// FloatConstant:4
-	float n_out4p0 = 1.000000;
-
-
-// Output:0
-	ALBEDO = n_out10p0;
-	ALPHA = n_out3p0;
-	ROUGHNESS = n_out4p0;
-
-
-}
-"
 varyings/texture_v = "0,4"
 nodes/vertex/2/node = SubResource("VisualShaderNodeInput_hv2xa")
 nodes/vertex/2/position = Vector2(-980, 140)
@@ -534,110 +403,111 @@ _surfaces = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rhre4"]
 
-[node name="MainWorld" type="Node3D"]
+[node name="MainWorld" type="Node3D" unique_id=2060361782]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1213327466]
 environment = SubResource("Environment_dat8o")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2088652825]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.64
 shadow_enabled = true
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1323408446]
 transform = Transform3D(4, 0, 0, 0, 2.5, 0, 0, 0, 4, 4.79, 0.512, 3.202)
 mesh = ExtResource("1_4qooy")
 
-[node name="StaticBody" type="StaticBody3D" parent="Floor"]
+[node name="StaticBody" type="StaticBody3D" parent="Floor" unique_id=874701342]
 
-[node name="Collision" type="CollisionShape3D" parent="Floor/StaticBody"]
+[node name="Collision" type="CollisionShape3D" parent="Floor/StaticBody" unique_id=606441929]
 shape = SubResource("ConvexPolygonShape3D_4qooy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody" unique_id=149657061]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -0.244, 0.21699995)
 shape = SubResource("ConvexPolygonShape3D_g5qp4")
 
-[node name="Sand" type="MeshInstance3D" parent="Floor"]
+[node name="Sand" type="MeshInstance3D" parent="Floor" unique_id=905344313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -0.244, 0.217)
 mesh = ExtResource("2_u0nld")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Sand"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Sand" unique_id=1802120364]
 mesh = SubResource("ArrayMesh_uq5dp")
 surface_material_override/0 = ExtResource("3_4qooy")
 
-[node name="Water" type="MeshInstance3D" parent="."]
+[node name="Water" type="MeshInstance3D" parent="." unique_id=1688811975]
 transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 10.417859, 0.30104446, 16.822302)
 mesh = SubResource("PlaneMesh_k5aiy")
 
-[node name="Player3d" parent="." instance=ExtResource("3_u0nld")]
+[node name="Player3d" parent="." unique_id=577630457 instance=ExtResource("3_u0nld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5592155, 2.8175745, 5.9838185)
 
-[node name="Dock" type="Node3D" parent="."]
+[node name="Dock" type="Node3D" parent="." unique_id=1223738549]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41123152, 0.99238014)
 
-[node name="structure-platform-dock" type="MeshInstance3D" parent="Dock"]
+[node name="structure-platform-dock" type="MeshInstance3D" parent="Dock" unique_id=493712743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4316187, 0.68025494, -5.41276)
 mesh = SubResource("ArrayMesh_7p0df")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Dock/structure-platform-dock"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Dock/structure-platform-dock" unique_id=1637986024]
 mesh = SubResource("ArrayMesh_g5qp4")
 surface_material_override/0 = ExtResource("3_4qooy")
 
-[node name="structure-platform-dock2" type="MeshInstance3D" parent="Dock"]
+[node name="structure-platform-dock2" type="MeshInstance3D" parent="Dock" unique_id=1637628157]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.432, 0.68, -7.413)
 mesh = SubResource("ArrayMesh_7p0df")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Dock/structure-platform-dock2"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Dock/structure-platform-dock2" unique_id=1869179143]
 mesh = SubResource("ArrayMesh_g5qp4")
 skeleton = NodePath("../../structure-platform-dock")
 surface_material_override/0 = ExtResource("3_4qooy")
 
-[node name="crate-bottles" parent="." instance=ExtResource("6_uq5dp")]
-transform = Transform3D(0.84835315, 0, -0.52943075, 0, 1, 0, 0.52943075, 0, 0.84835315, 0, 1.0670457, 0)
+[node name="crate-bottles" parent="." unique_id=506212877 instance=ExtResource("6_uq5dp")]
+transform = Transform3D(0.84835315, 0, -0.52943075, 0, 1, 0, 0.52943075, 0, 0.84835315, 0, 1.697856, 0)
 
-[node name="rocks-sand-b" type="MeshInstance3D" parent="."]
+[node name="rocks-sand-b" type="MeshInstance3D" parent="." unique_id=2026283822]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.014, 0.47855997, 9.195483)
 mesh = SubResource("ArrayMesh_f4mhy")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="rocks-sand-b"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="rocks-sand-b" unique_id=2101332111]
 mesh = SubResource("ArrayMesh_4qooy")
 surface_material_override/0 = ExtResource("3_4qooy")
 
-[node name="palm-bend2" type="Node3D" parent="."]
+[node name="palm-bend2" type="Node3D" parent="." unique_id=1179898284]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.328975, 1.1370006, 2.7176807)
 script = ExtResource("7_dat8o")
 
-[node name="palm-bend" type="MeshInstance3D" parent="palm-bend2"]
+[node name="palm-bend" type="MeshInstance3D" parent="palm-bend2" unique_id=372812469]
 transform = Transform3D(0.04818738, 0, -0.9988383, 0, 1, 0, 0.9988383, 0, 0.04818738, -6.7558293, 4.7683716e-07, 2.7013261)
 mesh = SubResource("ArrayMesh_vd0hj")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="palm-bend2/palm-bend"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="palm-bend2/palm-bend" unique_id=434545205]
 mesh = SubResource("ArrayMesh_to7sl")
 surface_material_override/0 = ExtResource("3_4qooy")
 
-[node name="palm-straight" type="MeshInstance3D" parent="palm-bend2"]
+[node name="palm-straight" type="MeshInstance3D" parent="palm-bend2" unique_id=1162245960]
 mesh = SubResource("ArrayMesh_ommam")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="palm-bend2/palm-straight"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="palm-bend2/palm-straight" unique_id=1360190054]
 mesh = SubResource("ArrayMesh_c8iq3")
 surface_material_override/0 = ExtResource("3_4qooy")
 
-[node name="Mark3d" parent="palm-bend2" instance=ExtResource("8_g5qp4")]
+[node name="Mark3d" parent="palm-bend2" unique_id=909874556 instance=ExtResource("8_g5qp4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.826, -0.956, -9.839)
 
-[node name="DetectionArea" type="Area3D" parent="palm-bend2"]
+[node name="DetectionArea" type="Area3D" parent="palm-bend2" unique_id=959004874]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8260002, 0.7669169, -9.839)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="palm-bend2/DetectionArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="palm-bend2/DetectionArea" unique_id=2039160355]
 shape = SubResource("BoxShape3D_rhre4")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="Cloud3d" parent="." instance=ExtResource("9_g5qp4")]
+[node name="Cloud3d" parent="." unique_id=123296659 instance=ExtResource("9_g5qp4")]
 transform = Transform3D(1.435, 0, 0, 0, 1.435, 0, 0, 0, 1.435, 8.785114, 20.772694, 0)
 speed = 0.01
 

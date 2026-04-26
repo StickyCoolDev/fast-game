@@ -82,17 +82,16 @@ script = ExtResource("2_jocej")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33795166, 0.009185791)
 shape = SubResource("BoxShape3D_jocej")
 
-[node name="Mark3d" parent="." instance=ExtResource("4_jocej")]
-visible = false
+[node name="InteractMark" parent="." instance=ExtResource("4_jocej")]
 
 [node name="PhantomCamera3D" type="Node3D" parent="."]
-transform = Transform3D(-0.75470966, 0, 0.65605897, 0, 1, 0, -0.65605897, 0, -0.75470966, 2.0603013, 1.1814709, -2.878458)
+transform = Transform3D(-0.75470966, -0.18852544, 0.62838805, 0, 0.9578225, 0.28736052, -0.65605897, 0.21687376, -0.7228779, 2.06, 1.796, -2.878)
 script = ExtResource("5_qaaq3")
 tween_resource = SubResource("Resource_1e3u8")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.75470966, 0, 0.65605897, 0, 1, 0, -0.65605897, 0, -0.75470966, 2.0603013, 1.1814709, -2.878458)
+transform = Transform3D(-0.75470966, -0.18852544, 0.62838805, 0, 0.9578225, 0.28736052, -0.65605897, 0.21687376, -0.7228779, 2.06, 1.796, -2.878)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -100,5 +99,7 @@ process_physics_priority = 300
 script = ExtResource("7_fikjc")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
+aabb = AABB(0, 0, 0, 1, 1, 1)
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="StaticBody3D" method="_on_visible_on_screen_notifier_3d_screen_entered"]

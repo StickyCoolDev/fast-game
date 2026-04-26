@@ -31,3 +31,6 @@ func open_cenamatic_view() -> void:
 func hide_secondary_views() -> void:
 	CVeiw1.hide()
 	CVeiw3.hide()
+
+func is_info_tab_open() -> bool:
+	return InfoTab.visible

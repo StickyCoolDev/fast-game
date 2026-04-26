@@ -8,23 +8,31 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Small Adventure"
 config/description="A super small adventure"
 run/main_scene="uid://86xq8pelpg0k"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Ui="*res://Components/UI/ui.tscn"
 
 [dialogue_manager]
 
 runtime/balloon_path="uid://b0j8pglurjlyy"
+
+[display]
+
+window/size/mode=3
 
 [editor_plugins]
 

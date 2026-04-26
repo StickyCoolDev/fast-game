@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://86xq8pelpg0k"]
+[gd_scene format=4 uid="uid://86xq8pelpg0k"]
 
 [ext_resource type="Texture2D" uid="uid://bmdcllmconhxe" path="res://Assets/Models3D/Textures/colormap.png" id="1_6c6cs"]
 [ext_resource type="ArrayMesh" uid="uid://bbq55ic2jovv2" path="res://Resources/sand.tres" id="1_nqd6t"]
@@ -239,44 +239,44 @@ _data = {
 &"open-close": SubResource("Animation_1u7rg")
 }
 
-[node name="MainMenu" type="Node3D"]
+[node name="MainMenu" type="Node3D" unique_id=622490644]
 script = ExtResource("1_xt57n")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=378501976]
 environment = SubResource("Environment_fu7sn")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=867963187]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="patch-sand" type="MeshInstance3D" parent="."]
+[node name="patch-sand" type="MeshInstance3D" parent="." unique_id=67465011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 3.5)
 mesh = ExtResource("1_nqd6t")
 skeleton = NodePath("")
 
-[node name="patch-grass" type="MeshInstance3D" parent="patch-sand"]
+[node name="patch-grass" type="MeshInstance3D" parent="patch-sand" unique_id=454098592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37708473, 0.25609922, -0.030576706)
 mesh = ExtResource("3_sixgq")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="patch-sand/patch-grass"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="patch-sand/patch-grass" unique_id=1102831194]
 mesh = SubResource("ArrayMesh_bjx7c")
 surface_material_override/0 = ExtResource("3_43m2q")
 
-[node name="Outline" type="MeshInstance3D" parent="patch-sand"]
+[node name="Outline" type="MeshInstance3D" parent="patch-sand" unique_id=1270330308]
 mesh = SubResource("ArrayMesh_os7au")
 
-[node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(0.7122219, 0.20534188, -0.6712486, 0.004263493, 0.95497364, 0.29666004, 0.70194155, -0.21414962, 0.6792776, -7, 2, 6.5)
+[node name="Camera" type="Camera3D" parent="." unique_id=1869680406]
+transform = Transform3D(0.71065146, 0.21019882, -0.67140967, 0.0027150384, 0.95349824, 0.30138627, 0.7035391, -0.21600348, 0.67703414, -7, 2, 6.5)
 
-[node name="PhantomCameraHost" type="Node" parent="Camera"]
+[node name="PhantomCameraHost" type="Node" parent="Camera" unique_id=1746832013]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("2_fo6ee")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=155048333]
 
-[node name="UI" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=292124526]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -284,7 +284,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ExitUI" type="Control" parent="CanvasLayer/UI"]
+[node name="ExitUI" type="Control" parent="CanvasLayer/UI" unique_id=1415562631]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -293,7 +293,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="CanvasLayer/UI/ExitUI"]
+[node name="Panel" type="Panel" parent="CanvasLayer/UI/ExitUI" unique_id=2040425756]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -308,7 +308,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xt57n")
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/ExitUI/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/ExitUI/Panel" unique_id=1751469716]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -325,12 +325,12 @@ theme_override_fonts/font = ExtResource("7_os7au")
 theme_override_font_sizes/font_size = 41
 text = "Are sure you want to quit game?"
 
-[node name="ExitButtons" type="Control" parent="CanvasLayer/UI/ExitUI/Panel"]
+[node name="ExitButtons" type="Control" parent="CanvasLayer/UI/ExitUI/Panel" unique_id=1850484084]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ExitNoButton" type="Button" parent="CanvasLayer/UI/ExitUI/Panel/ExitButtons"]
+[node name="ExitNoButton" type="Button" parent="CanvasLayer/UI/ExitUI/Panel/ExitButtons" unique_id=577217664]
 layout_mode = 0
 offset_left = 489.943
 offset_top = 142.0
@@ -344,7 +344,7 @@ theme_override_styles/hover = ExtResource("10_37xt4")
 text = "No
 "
 
-[node name="ExitYesButton" type="Button" parent="CanvasLayer/UI/ExitUI/Panel/ExitButtons"]
+[node name="ExitYesButton" type="Button" parent="CanvasLayer/UI/ExitUI/Panel/ExitButtons" unique_id=1363094528]
 layout_mode = 0
 offset_left = 161.943
 offset_top = 140.0
@@ -357,23 +357,26 @@ theme_override_styles/normal = ExtResource("5_xt57n")
 theme_override_styles/hover = ExtResource("10_37xt4")
 text = "Yes"
 
-[node name="MenuUI" type="Control" parent="CanvasLayer/UI"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MenuUI" type="Control" parent="CanvasLayer/UI" unique_id=55611406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MainMenuButtons" type="HBoxContainer" parent="CanvasLayer/UI/MenuUI"]
+[node name="MainMenuButtons" type="HBoxContainer" parent="CanvasLayer/UI/MenuUI" unique_id=1116204072]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 507.0
-offset_right = 881.0
-offset_bottom = 574.0
+offset_left = 103.0
+offset_top = -156.0
+offset_right = 974.0
+offset_bottom = -89.0
 grow_vertical = 0
 
-[node name="StartButton" type="Button" parent="CanvasLayer/UI/MenuUI/MainMenuButtons"]
+[node name="StartButton" type="Button" parent="CanvasLayer/UI/MenuUI/MainMenuButtons" unique_id=1755110849]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_43m2q")
@@ -382,12 +385,12 @@ theme_override_styles/normal = ExtResource("5_xt57n")
 theme_override_styles/hover = ExtResource("6_os7au")
 text = "Start"
 
-[node name="StartIcon" type="Sprite2D" parent="CanvasLayer/UI/MenuUI/MainMenuButtons/StartButton"]
+[node name="StartIcon" type="Sprite2D" parent="CanvasLayer/UI/MenuUI/MainMenuButtons/StartButton" unique_id=860611438]
 position = Vector2(35, 34)
 scale = Vector2(0.5975, 0.450289)
 texture = ExtResource("7_n0kcp")
 
-[node name="OptionButton" type="Button" parent="CanvasLayer/UI/MenuUI/MainMenuButtons"]
+[node name="OptionButton" type="Button" parent="CanvasLayer/UI/MenuUI/MainMenuButtons" unique_id=2002801640]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_43m2q")
@@ -396,12 +399,12 @@ theme_override_styles/normal = ExtResource("5_xt57n")
 theme_override_styles/hover = ExtResource("6_os7au")
 text = "options"
 
-[node name="OptionsIcon" type="Sprite2D" parent="CanvasLayer/UI/MenuUI/MainMenuButtons/OptionButton"]
+[node name="OptionsIcon" type="Sprite2D" parent="CanvasLayer/UI/MenuUI/MainMenuButtons/OptionButton" unique_id=765212063]
 position = Vector2(29, 35)
 scale = Vector2(0.49, 0.49)
 texture = ExtResource("8_37xt4")
 
-[node name="ExitButton" type="Button" parent="CanvasLayer/UI/MenuUI/MainMenuButtons"]
+[node name="ExitButton" type="Button" parent="CanvasLayer/UI/MenuUI/MainMenuButtons" unique_id=1802266726]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_43m2q")
@@ -410,21 +413,18 @@ theme_override_styles/normal = ExtResource("5_xt57n")
 theme_override_styles/hover = ExtResource("6_os7au")
 text = "exit"
 
-[node name="ExitIcon" type="Sprite2D" parent="CanvasLayer/UI/MenuUI/MainMenuButtons/ExitButton"]
+[node name="ExitIcon" type="Sprite2D" parent="CanvasLayer/UI/MenuUI/MainMenuButtons/ExitButton" unique_id=449357171]
 position = Vector2(62, 36)
 scale = Vector2(0.545, 0.505)
 texture = ExtResource("9_mdh17")
 
-[node name="GameNameLabel" type="Label" parent="CanvasLayer/UI/MenuUI"]
+[node name="GameNameLabel" type="Label" parent="CanvasLayer/UI/MenuUI" unique_id=1034707333]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -46.0
-offset_top = 372.0
-offset_right = 790.0
-offset_bottom = 557.0
-grow_vertical = 0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.30864197
+offset_bottom = 89.0
+grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.541176)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 4
@@ -434,8 +434,10 @@ theme_override_font_sizes/font_size = 70
 text = "Small Adventure"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="OptionsUI" type="Control" parent="CanvasLayer/UI"]
+[node name="OptionsUI" type="Control" parent="CanvasLayer/UI" unique_id=1009070305]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -444,7 +446,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_sixgq")
 
-[node name="Credits" type="Panel" parent="CanvasLayer/UI/OptionsUI"]
+[node name="Credits" type="Panel" parent="CanvasLayer/UI/OptionsUI" unique_id=2107943810]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -460,7 +462,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xt57n")
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/Credits"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/Credits" unique_id=233099626]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -478,7 +480,7 @@ theme_override_font_sizes/font_size = 46
 text = "         A game made by:-
 ATU_Studios,StickyCoolDEV"
 
-[node name="Main" type="Panel" parent="CanvasLayer/UI/OptionsUI"]
+[node name="Main" type="Panel" parent="CanvasLayer/UI/OptionsUI" unique_id=527721560]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -493,7 +495,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xt57n")
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/Main"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/Main" unique_id=887155813]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -510,7 +512,7 @@ theme_override_fonts/font = ExtResource("7_os7au")
 theme_override_font_sizes/font_size = 46
 text = "Function not available yet :("
 
-[node name="OptionsLabelShadow" type="Panel" parent="CanvasLayer/UI/OptionsUI"]
+[node name="OptionsLabelShadow" type="Panel" parent="CanvasLayer/UI/OptionsUI" unique_id=515321315]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -525,7 +527,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_37xt4")
 
-[node name="OptionsLabel" type="Panel" parent="CanvasLayer/UI/OptionsUI"]
+[node name="OptionsLabel" type="Panel" parent="CanvasLayer/UI/OptionsUI" unique_id=28370743]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -540,7 +542,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("16_x3jur")
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionsLabel"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionsLabel" unique_id=1580657524]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -557,7 +559,7 @@ theme_override_fonts/font = ExtResource("3_nqd6t")
 theme_override_font_sizes/font_size = 41
 text = "Options"
 
-[node name="OptionMainButton" type="Button" parent="CanvasLayer/UI/OptionsUI"]
+[node name="OptionMainButton" type="Button" parent="CanvasLayer/UI/OptionsUI" unique_id=2042646259]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -574,7 +576,7 @@ theme_override_styles/normal = ExtResource("16_x3jur")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_x3jur")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bjx7c")
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionMainButton"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionMainButton" unique_id=1514192262]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -591,7 +593,7 @@ theme_override_fonts/font = ExtResource("17_sixgq")
 theme_override_font_sizes/font_size = 31
 text = "Main"
 
-[node name="OptionCreditsButton" type="Button" parent="CanvasLayer/UI/OptionsUI"]
+[node name="OptionCreditsButton" type="Button" parent="CanvasLayer/UI/OptionsUI" unique_id=823775035]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -608,7 +610,7 @@ theme_override_styles/normal = ExtResource("16_x3jur")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_x3jur")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bjx7c")
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionCreditsButton"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionCreditsButton" unique_id=351133744]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -625,7 +627,7 @@ theme_override_fonts/font = ExtResource("17_sixgq")
 theme_override_font_sizes/font_size = 31
 text = "Credits"
 
-[node name="OptionExit" type="Button" parent="CanvasLayer/UI/OptionsUI"]
+[node name="OptionExit" type="Button" parent="CanvasLayer/UI/OptionsUI" unique_id=723397347]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -642,7 +644,7 @@ theme_override_styles/normal = ExtResource("16_x3jur")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_x3jur")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bjx7c")
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionExit"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/OptionsUI/OptionExit" unique_id=1411266824]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -659,41 +661,39 @@ theme_override_fonts/font = ExtResource("17_sixgq")
 theme_override_font_sizes/font_size = 31
 text = "X"
 
-[node name="AnimationManager" type="Node" parent="."]
+[node name="AnimationManager" type="Node" parent="." unique_id=1843626945]
 script = ExtResource("10_x3jur")
 
-[node name="MainCamera" type="Node3D" parent="."]
+[node name="MainCamera" type="Node3D" parent="." unique_id=426154632]
 transform = Transform3D(0.707107, 0.214407, -0.673817, 1.49012e-08, 0.952921, 0.303218, 0.707107, -0.214407, 0.673817, -7, 2, 6.5)
 script = ExtResource("11_sixgq")
 tween_resource = SubResource("Resource_dy7ct")
 noise = SubResource("Resource_8qtwp")
 
-[node name="Water" parent="." instance=ExtResource("14_4jfpt")]
+[node name="Water" parent="." unique_id=439198635 instance=ExtResource("14_4jfpt")]
 transform = Transform3D(0.050229326, 0, 0, 0, 0.050229326, 0, 0, 0, 0.050229326, 0, 0, 0)
 
-[node name="chest2" type="Node3D" parent="."]
+[node name="chest2" type="Node3D" parent="." unique_id=1504230521]
 transform = Transform3D(0.27702963, 0, -0.9608614, 0, 1, 0, 0.9608614, 0, 0.27702963, -1.3237416, 0.49450874, 3.244173)
 
-[node name="chest" type="MeshInstance3D" parent="chest2"]
+[node name="chest" type="MeshInstance3D" parent="chest2" unique_id=1817232649]
 mesh = SubResource("ArrayMesh_qpksl")
 skeleton = NodePath("")
 
-[node name="lid" type="MeshInstance3D" parent="chest2/chest"]
+[node name="lid" type="MeshInstance3D" parent="chest2/chest" unique_id=1880035104]
 transform = Transform3D(1, 0, 0, 0, 1, 1.7439346e-16, 0, -1.7439346e-16, 1, -9.498978e-09, 0.51, -0.51)
 mesh = SubResource("ArrayMesh_d2mid")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="chest2/chest/lid"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="chest2/chest/lid" unique_id=812872154]
 mesh = SubResource("ArrayMesh_n0kcp")
 surface_material_override/0 = ExtResource("3_43m2q")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="chest2/chest"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="chest2/chest" unique_id=1566073590]
 mesh = SubResource("ArrayMesh_37xt4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="chest2"]
-libraries = {
-&"": SubResource("AnimationLibrary_te08t")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="chest2" unique_id=2139549915]
+libraries/ = SubResource("AnimationLibrary_te08t")
 
 [connection signal="pressed" from="CanvasLayer/UI/ExitUI/Panel/ExitButtons/ExitNoButton" to="." method="_on_exit_no_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/ExitUI/Panel/ExitButtons/ExitYesButton" to="." method="_on_exit_yes_button_pressed"]

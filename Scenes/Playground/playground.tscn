@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cle75abyndhbs"]
+[gd_scene load_steps=10 format=3 uid="uid://cle75abyndhbs"]
 
 [ext_resource type="Texture2D" uid="uid://bgbe08517pcyr" path="res://addons/kenney_prototype_textures/orange/texture_02.png" id="1_hotcy"]
 [ext_resource type="PackedScene" uid="uid://cid6ko4xlq07e" path="res://Scenes/Playground/player_3d.tscn" id="1_oyxf0"]
+[ext_resource type="Script" uid="uid://78km1wbvcrc7" path="res://Scenes/Playground/test.gd" id="3_dbwwm"]
+[ext_resource type="PackedScene" uid="uid://c4sxaetad5lvi" path="res://Components/Boats/BoatSmall/boat_small.tscn" id="4_uvwl6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oyxf0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,6 +22,9 @@ albedo_color = Color(0.601223, 0.601223, 0.60122293, 1)
 albedo_texture = ExtResource("1_hotcy")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uvwl6"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Playground" type="Node3D"]
 
@@ -41,4 +46,86 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7678492, 0)
 mouse_sensitivity = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.8083609, -0.22617878, 0.5435032, 0.011351213, 0.9290631, 0.36974674, -0.5885777, -0.29271936, 0.7535858, 4.385, 2.901, 5.353)
+transform = Transform3D(-0.1660496, -0.36288506, 0.91691977, 0.011351213, 0.9290631, 0.36974674, -0.986052, 0.07180444, -0.1501514, 4.385, 2.901, 5.353)
+current = true
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+script = ExtResource("3_dbwwm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
+shape = SubResource("BoxShape3D_uvwl6")
+
+[node name="Marker3D" type="Marker3D" parent="Node3D/Area3D"]
+gizmo_extents = 0.53
+
+[node name="Area3D2" type="Area3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
+script = ExtResource("3_dbwwm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D2"]
+shape = SubResource("BoxShape3D_uvwl6")
+
+[node name="Marker3D" type="Marker3D" parent="Node3D/Area3D2"]
+gizmo_extents = 0.53
+
+[node name="Area3D3" type="Area3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 7)
+script = ExtResource("3_dbwwm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D3"]
+shape = SubResource("BoxShape3D_uvwl6")
+
+[node name="Marker3D" type="Marker3D" parent="Node3D/Area3D3"]
+gizmo_extents = 0.53
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Area3D" type="Area3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+script = ExtResource("3_dbwwm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Area3D"]
+shape = SubResource("BoxShape3D_uvwl6")
+
+[node name="Marker3D" type="Marker3D" parent="Node3D2/Area3D"]
+gizmo_extents = 0.53
+
+[node name="Area3D2" type="Area3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
+script = ExtResource("3_dbwwm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Area3D2"]
+shape = SubResource("BoxShape3D_uvwl6")
+
+[node name="Marker3D" type="Marker3D" parent="Node3D2/Area3D2"]
+gizmo_extents = 0.53
+
+[node name="Area3D3" type="Area3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 7)
+script = ExtResource("3_dbwwm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Area3D3"]
+shape = SubResource("BoxShape3D_uvwl6")
+
+[node name="Marker3D" type="Marker3D" parent="Node3D2/Area3D3"]
+gizmo_extents = 0.53
+
+[node name="BoatSmall" parent="." instance=ExtResource("4_uvwl6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3481092, 6.845435)
+
+[connection signal="body_entered" from="Node3D/Area3D" to="Node3D/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Node3D/Area3D" to="Node3D/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Node3D/Area3D2" to="Node3D/Area3D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Node3D/Area3D2" to="Node3D/Area3D2" method="_on_body_exited"]
+[connection signal="body_entered" from="Node3D/Area3D3" to="Node3D/Area3D3" method="_on_body_entered"]
+[connection signal="body_exited" from="Node3D/Area3D3" to="Node3D/Area3D3" method="_on_body_exited"]
+[connection signal="body_entered" from="Node3D2/Area3D" to="Node3D2/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Node3D2/Area3D" to="Node3D2/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="Node3D2/Area3D2" to="Node3D2/Area3D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Node3D2/Area3D2" to="Node3D2/Area3D2" method="_on_body_exited"]
+[connection signal="body_entered" from="Node3D2/Area3D3" to="Node3D2/Area3D3" method="_on_body_entered"]
+[connection signal="body_exited" from="Node3D2/Area3D3" to="Node3D2/Area3D3" method="_on_body_exited"]

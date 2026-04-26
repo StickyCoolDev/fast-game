@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=4 format=4 uid="uid://bbq55ic2jovv2"]
+[gd_resource type="ArrayMesh" format=4 uid="uid://bbq55ic2jovv2"]
 
 [ext_resource type="Texture2D" uid="uid://bmdcllmconhxe" path="res://Assets/Models3D/Textures/colormap.png" id="1_aoe6r"]
 

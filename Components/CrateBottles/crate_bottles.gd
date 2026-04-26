@@ -18,6 +18,7 @@ func interact() -> void:
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 	if once == false:
+		await get_tree().create_timer(0.5).timeout
 		$"../PhantomCamera3D".priority = 2
 		Ui.open_cenamatic_view()
 		$"../PhantomCamera3D".priority = 0

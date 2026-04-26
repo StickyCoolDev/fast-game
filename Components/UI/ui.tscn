@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d25x011uclpfl"]
+[gd_scene format=3 uid="uid://d25x011uclpfl"]
 
 [ext_resource type="Script" uid="uid://byf87b1brs7aw" path="res://Components/UI/ui.gd" id="1_ottin"]
 
@@ -43,6 +43,45 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 5
 
+[sub_resource type="Animation" id="Animation_lcxnx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/ColorRect3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/ColorRect2:size_flags_stretch_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [256.0]
+}
+
 [sub_resource type="Animation" id="Animation_wgtao"]
 resource_name = "cinematic_ui_open"
 length = 0.5
@@ -83,55 +122,16 @@ tracks/2/keys = {
 "values": [256.0, 3.0]
 }
 
-[sub_resource type="Animation" id="Animation_lcxnx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/ColorRect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/ColorRect3:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/ColorRect2:size_flags_stretch_ratio")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [256.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_33bk5"]
 _data = {
 &"RESET": SubResource("Animation_lcxnx"),
 &"cinematic_ui_open": SubResource("Animation_wgtao")
 }
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" unique_id=1156356076]
 script = ExtResource("1_ottin")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=71581904]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,7 +140,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1272508231]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -152,70 +152,69 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="InfoTabContainer" type="TabContainer" parent="Control/MarginContainer"]
+[node name="InfoTabContainer" type="TabContainer" parent="Control/MarginContainer" unique_id=221298583]
 visible = false
 layout_mode = 2
 theme = SubResource("Theme_iq7i6")
 current_tab = 0
 
-[node name="Upgrade" type="PanelContainer" parent="Control/MarginContainer/InfoTabContainer"]
+[node name="Upgrade" type="PanelContainer" parent="Control/MarginContainer/InfoTabContainer" unique_id=100662379]
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_iq7i6")
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/InfoTabContainer/Upgrade"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/InfoTabContainer/Upgrade" unique_id=1238137699]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="CloseButton" type="Button" parent="Control/MarginContainer/InfoTabContainer/Upgrade/MarginContainer"]
+[node name="CloseButton" type="Button" parent="Control/MarginContainer/InfoTabContainer/Upgrade/MarginContainer" unique_id=1720836188]
 layout_mode = 2
+mouse_filter = 1
 text = "Close"
 
-[node name="Control2" type="Control" parent="."]
+[node name="Control2" type="Control" parent="." unique_id=1846693628]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2" unique_id=530543848]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control2/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="Control2/VBoxContainer" unique_id=1748777395]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Control2/VBoxContainer"]
+[node name="ColorRect2" type="ColorRect" parent="Control2/VBoxContainer" unique_id=816173069]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 256.0
-mouse_filter = 2
+mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="ColorRect3" type="ColorRect" parent="Control2/VBoxContainer"]
+[node name="ColorRect3" type="ColorRect" parent="Control2/VBoxContainer" unique_id=418731724]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control2"]
-libraries = {
-&"": SubResource("AnimationLibrary_33bk5")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control2" unique_id=149188067]
+libraries/ = SubResource("AnimationLibrary_33bk5")
 
 [connection signal="pressed" from="Control/MarginContainer/InfoTabContainer/Upgrade/MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]
